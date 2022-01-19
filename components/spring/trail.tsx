@@ -5,7 +5,7 @@ import { useTrail, animated } from "react-spring";
 export const TrailText: React.FC<{ open: boolean }> = ({ open, children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 700 },
     opacity: open ? 1 : 0,
     // y: open ? 0 : 200,
     transform: open ? `translateY(0px)` : `translateY(150px)`,
@@ -45,10 +45,10 @@ export const TrailButton: React.FC<{ open: boolean }> = ({
 }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 700 },
     opacity: open ? 1 : 0,
     height: open ? 110 : 0,
-    delay: 200,
+    delay: 0,
     from: { opacity: 0, height: 0 }
   });
   return (
@@ -79,7 +79,7 @@ export const TrailButton: React.FC<{ open: boolean }> = ({
 export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200, duration: 300 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 900 },
     opacity: open ? 1 : 0,
     // y: open ? 0 : 200,
     transform: open ? `translateY(0%)` : `translateY(100%)`,

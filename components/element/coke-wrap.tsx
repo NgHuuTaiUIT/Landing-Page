@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useEffect, useState } from "react";
 import { animated, useSpring, useTrail, useTransition } from "react-spring";
 import Coke from "../three/Coke";
-import { TrailButton, TrailCoke } from "../spring/trail";
+import { TrailButton, TrailCoke, TrailText } from "../spring/trail";
 import Loading from "../common/loading";
 
 interface Props {}
@@ -23,14 +23,14 @@ export const CokeWrap = (props: Props) => {
   //   });
 
   return (
-    <Box
-      sx={{
-        height: "100%",
-        position: "absolute",
-        width: "100%",
-        overflow: "hidden"
-      }}>
-      <TrailCoke open={open}>
+    <TrailCoke open={open}>
+      <Box
+        sx={{
+          height: "100%",
+          position: "absolute",
+          width: "100%",
+          overflow: "hidden"
+        }}>
         <Canvas
           // camera={{ position: [-3, -2.5, 2], fov: 75 }}
           /*
@@ -101,7 +101,7 @@ export const CokeWrap = (props: Props) => {
             add the other taste add
           </Text>
         </Flex>
-      </TrailCoke>
-    </Box>
+      </Box>
+    </TrailCoke>
   );
 };

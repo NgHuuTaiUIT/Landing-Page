@@ -85,6 +85,9 @@ const Heading = (props: Props) => {
             sx={{ fontWeight: "bold", lineHeight: "135px" }}>
             COCA COLA
           </Text>
+        </TrailText>
+
+        <TrailText open={open}>
           <Text
             // fontSize="150px"
             sx={{ fontWeight: "bold", lineHeight: "135px" }}>
