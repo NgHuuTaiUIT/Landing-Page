@@ -88,10 +88,11 @@ export const Content = (props: Props) => {
   return (
     <Box
       sx={{
-        position: "relative",
+        position: "absolute",
         top: 0,
         left: 0,
-        height: "100%"
+        height: "100%",
+        width: "100%"
         // background:
         //   "linear-gradient(180deg, rgba(245,244,233,0) 0%,rgba(245,244,233,0) 50%,rgba(245,244,233,0.9) 65%, rgba(245,244,233,1) 70%)"
       }}>
@@ -116,7 +117,6 @@ export const Content = (props: Props) => {
           color="gray"
         />
       </Flex>
-
       <Flex
         sx={{
           position: "absolute",
