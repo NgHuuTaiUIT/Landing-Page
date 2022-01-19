@@ -6,12 +6,22 @@ source: https://sketchfab.com/models/6a35d2c1bfe143e4b7e27a9e5324a905
 title: French Coke can
 */
 
-import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-
+import { useFrame } from "@react-three/fiber";
+import React, { useRef } from "react";
 export default function Model({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/coke.gltf");
+  // useFrame(state => {
+  //   const t = state.clock.getElapsedTime();
+  //   console.log(group.current.rotation);
+  //   group.current.rotation.set(
+  //     0.1 + Math.cos(t / 4.5) / 10,
+  //     Math.sin(t / 4) / 4,
+  //     0.3 - (1 + Math.sin(t / 4)) / 8
+  //   );
+  //   group.current.position.y = (1 + Math.sin(t / 2)) / 10;
+  // });
   return (
     <group ref={group} {...props} dispose={null}>
       {/* <group rotation={[-Math.PI / 2, 0.4, 0]}> */}

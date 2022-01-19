@@ -1,7 +1,9 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { keyframes } from "@emotion/react";
-import React from "react";
+import { Canvas } from "@react-three/fiber";
+import React, { Suspense } from "react";
 import { Icon } from "./heading";
+import Coke from "../../components/three/Coke";
 
 interface Props {}
 const Heading = ({
@@ -89,9 +91,9 @@ export const Content = (props: Props) => {
         position: "relative",
         top: 0,
         left: 0,
-        height: "100%",
-        background:
-          "linear-gradient(180deg, rgba(245,244,233,0) 0%,rgba(245,244,233,0) 50%,rgba(245,244,233,0.9) 70%, rgba(245,244,233,1) 100%)"
+        height: "100%"
+        // background:
+        //   "linear-gradient(180deg, rgba(245,244,233,0) 0%,rgba(245,244,233,0) 50%,rgba(245,244,233,0.9) 65%, rgba(245,244,233,1) 70%)"
       }}>
       {/* <Heading>Healthy and delicious. Headlthy</Heading> */}
 
@@ -114,34 +116,7 @@ export const Content = (props: Props) => {
           color="gray"
         />
       </Flex>
-      <Text
-        sx={{
-          opacity: 1,
-          //   backgroundColor: "primary",
-          position: "absolute",
-          bottom: "27%",
-          left: "18px",
-          //   height: "40%",
-          width: "280px",
-          fontWeight: "bold",
-          color: "black",
-          fontSize: "20px",
-          lineHeight: "20px",
-          letterSpacing: "1px"
-        }}>
-        Healthy and delicious. <br />
-        Headlthy
-        <Text
-          sx={{
-            color: "gray",
-            // fontSize: "24px",
-            lineHeight: "35px",
-            fontWeight: "500",
-            pt: "0px"
-          }}>
-          Express a fresh and fun feel to add t othe taste add
-        </Text>
-      </Text>
+
       <Flex
         sx={{
           position: "absolute",

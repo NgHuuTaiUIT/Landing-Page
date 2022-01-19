@@ -1,8 +1,9 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import cup from "../../assets/cup.svg";
 import face from "../../assets/Facebook.svg";
 import ins from "../../assets/Instagram.svg";
+import { TrailButton, TrailText } from "../spring/trail";
 
 interface Props {}
 export const Icon = ({
@@ -61,6 +62,14 @@ const Footer = () => {
 };
 
 const Heading = (props: Props) => {
+  const [open, setOpen] = useState(true);
+  useEffect(() => {
+    // setOpen(false);
+    // const a = setInterval(() => setOpen(!open), 3000);
+    // return () => clearInterval(a);
+  }, []);
+
+  // console.log(open);
   return (
     <Flex
       width="50%"
@@ -70,22 +79,33 @@ const Heading = (props: Props) => {
       ml="40px">
       <Icon height="30px" width="30px" icon="/assets/cup.svg" />
       <Flex align="right" flexDirection="column" ml="30%" pt="35px">
-        <Text fontSize="150px" sx={{ fontWeight: "bold", lineHeight: "135px" }}>
-          COCA COLA DRINKS
-        </Text>
-        {/* <Text fontSize="150px" sx={{ fontWeight: "bold" }}></Text> */}
-        <Button
-          sx={{
-            width: "165px",
-            height: "60px",
-            borderRadius: "50",
-            mt: "20px",
-            bg: "secondary",
-            fontSize: "20px",
-            fontWeight: "bold"
-          }}>
-          Explore More
-        </Button>
+        <TrailText open={open}>
+          <Text
+            // fontSize="150px"
+            sx={{ fontWeight: "bold", lineHeight: "135px" }}>
+            COCA COLA
+          </Text>
+          <Text
+            // fontSize="150px"
+            sx={{ fontWeight: "bold", lineHeight: "135px" }}>
+            DRINKS
+          </Text>
+          {/* <Text fontSize="150px" sx={{ fontWeight: "bold" }}></Text> */}
+        </TrailText>
+        <TrailButton open={open}>
+          <Button
+            sx={{
+              width: "165px",
+              height: "60px",
+              borderRadius: "50",
+              mt: "20px",
+              bg: "secondary",
+              fontSize: "20px",
+              fontWeight: "bold"
+            }}>
+            Explore More
+          </Button>
+        </TrailButton>
       </Flex>
       <Footer />
     </Flex>
