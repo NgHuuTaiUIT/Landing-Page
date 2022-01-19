@@ -4,6 +4,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { animated, useSpring, useTrail, useTransition } from "react-spring";
 import Coke from "../three/Coke";
 import { TrailButton, TrailCoke } from "../spring/trail";
+import Loading from "../common/loading";
 
 interface Props {}
 
