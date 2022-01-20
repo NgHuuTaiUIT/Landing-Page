@@ -11,21 +11,26 @@ import { useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
 export default function Model({ ...props }) {
   const group = useRef();
+  const group1 = useRef();
+
   const { nodes, materials } = useGLTF("/coke.gltf");
-  useFrame(state => {
-    const t = state.clock.getElapsedTime();
-    console.log(group.current.rotation);
-    group.current.rotation.set(
-      0.1 + Math.cos(t / 4.5) / 10,
-      Math.sin(t / 4) / 4,
-      0.3 - (1 + Math.sin(t / 4)) / 8
-    );
-    group.current.position.y = (1 + Math.sin(t / 2)) / 10;
-  });
+  // useFrame(state => {
+  //   const t = state.clock.getElapsedTime();
+  //   // console.log(group.current.rotation);
+  //   // group.current.rotation.set(
+  //   //   0.1 + Math.cos(t / 4.5) / 10,
+  //   //   Math.sin(t / 4) / 4,
+  //   //   0.3 - (1 + Math.sin(t / 4)) / 8
+  //   // );
+  //   // group.current.rotation.y += Math.cos(t / 4.5) / 100;
+
+  //   group.current.position.y = -0.3 + (1 + Math.sin(t / 0.5)) / 5;
+  //   group1.current.rotation.z = -0.4 - (1 + Math.sin(t / 0.5)) / 5;
+  // });
   return (
     <group ref={group} {...props} dispose={null}>
       {/* <group rotation={[-Math.PI / 2, 0.4, 0]}> */}
-      <group rotation={[-0.85, 0.3, -0.8]}>
+      <group ref={group1} rotation={[-0.85, 0.3, -0.8]}>
         <group position={[-0.3, 0.4, -0.4]} scale={0.65}>
           <mesh
             geometry={nodes.Cylinder001_0.geometry}

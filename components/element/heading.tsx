@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import cup from "../../assets/cup.svg";
 import face from "../../assets/Facebook.svg";
 import ins from "../../assets/Instagram.svg";
+import Head from "../common/head";
 import { TrailButton, TrailText } from "../spring/trail";
 
 interface Props {}
@@ -77,23 +78,16 @@ const Heading = (props: Props) => {
       justify="space-around"
       flexDirection="column"
       ml="40px">
-      <Icon height="30px" width="30px" icon="/assets/cup.svg" />
-      <Flex align="right" flexDirection="column" ml="30%" pt="35px">
+      <Flex align="right" flexDirection="column" ml="33.5%" pt="92px">
         <TrailText open={open}>
-          <Text
-            // fontSize="150px"
-            sx={{ fontWeight: "bold", lineHeight: "135px" }}>
-            COCA COLA
-          </Text>
+          <Head size={150}>COCACOLA</Head>
+          {/* <Head size={150}>MANGO</Head> */}
         </TrailText>
 
         <TrailText open={open}>
-          <Text
-            // fontSize="150px"
-            sx={{ fontWeight: "bold", lineHeight: "135px" }}>
+          <Head size={150} style={{ padding: "5px 0" }}>
             DRINKS
-          </Text>
-          {/* <Text fontSize="150px" sx={{ fontWeight: "bold" }}></Text> */}
+          </Head>
         </TrailText>
         <TrailButton open={open}>
           <Button
@@ -101,16 +95,18 @@ const Heading = (props: Props) => {
               width: "165px",
               height: "60px",
               borderRadius: "50",
-              mt: "20px",
+              mt: "10px",
+              ml: "7px",
               bg: "secondary",
-              fontSize: "20px",
-              fontWeight: "bold"
+              fontSize: "18px",
+              fontWeight: "bold",
+              fontFamily: "Poppins",
+              letterSpacing: "-0.5px"
             }}>
             Explore More
           </Button>
         </TrailButton>
       </Flex>
-      <Footer />
     </Flex>
   );
 };

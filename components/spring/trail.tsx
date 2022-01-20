@@ -26,7 +26,6 @@ export const TrailText: React.FC<{ open: boolean }> = ({ open, children }) => {
             color: "black",
             fontSize: "10em",
             fontWeight: "800",
-            letterSpacing: "-0.05em",
             willChange: "transform, opacity",
             overflow: "hidden"
           }}>

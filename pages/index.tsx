@@ -1,29 +1,28 @@
-import { Box, Container, Flex, position } from "@chakra-ui/react";
-import { Canvas } from "@react-three/fiber";
+import { Box } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import { OrbitControls } from "@react-three/drei";
-import Coke from "../components/three/Coke";
-import { Suspense } from "react";
-import Heading from "../components/element/heading";
-import { Content } from "../components/element/content";
-import { CokeWrap } from "../components/element/coke-wrap";
-import { TrailCoke } from "../components/spring/trail";
+import { useEffect, useState } from "react";
+import Scene1 from "../components/Scene/scene1";
+import Scene2 from "../components/Scene/scene2";
 const Home: NextPage = () => {
-  return (
-    <Flex
-      justify="center"
-      align="start"
-      sx={{ position: "relative", height: "100%", overflow: "hidden" }}
-      bg="primary">
-      <Heading />
-      {/* <TrailCoke open={true}> */}
+  const [scene, setScene] = useState(0);
 
-      {/* </TrailCoke> */}
-      <Box sx={{ flex: 1, height: "100%", position: "relative" }}>
-        <CokeWrap />
-        <Content />
-      </Box>
-    </Flex>
+  // console.log(scene);
+  // useEffect(() => {
+  //   document.addEventListener("click", () => {
+  //     setScene(scene + 1 >= 2 ? 0 : scene + 1);
+  //   });
+  //   return () => document.removeEventListener("click", null);
+  // }, [scene]);
+  return (
+    <Box
+      sx={{
+        height: "300%",
+        transform: `translateY(-${scene * 33}%)`,
+        transition: "transform 1s linear"
+      }}>
+      <Box height="33%">{scene === 0 && <Scene1 />}</Box>
+      <Box height="33%">{scene === 1 && <Scene2 />}</Box>
+    </Box>
   );
 };
 

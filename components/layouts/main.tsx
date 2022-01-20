@@ -1,6 +1,8 @@
 import { Box, Container, useColorModeValue } from "@chakra-ui/react";
 import Head from "next/head";
 import React from "react";
+import Background from "../common/background";
+import Icon from "../common/icon";
 
 const MainLayout = (props: any) => {
   const { children, router } = props;
@@ -15,7 +17,10 @@ const MainLayout = (props: any) => {
         width={"1424px"}
         height="891px"
         // bg="secondary"
+        position="relative"
+        overflow="hidden"
         mt={10}>
+        <Background />
         {children}
       </Container>
     </Box>

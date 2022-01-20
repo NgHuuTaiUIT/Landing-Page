@@ -2,9 +2,10 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useEffect, useState } from "react";
 import { animated, useSpring, useTrail, useTransition } from "react-spring";
-import Coke from "../three/Coke";
+import Coke from "../three/Coke1";
 import { TrailButton, TrailCoke, TrailText } from "../spring/trail";
 import Loading from "../common/loading";
+import Rotate from "../three/Rotate";
 
 interface Props {}
 
@@ -45,15 +46,15 @@ export const CokeWrap = (props: Props) => {
          <group rotation={[-1, 0, -0.4]}>
          <group position={[0, 0, -0.8]} scale={0.65}>
         */
-
+          camera={{ position: [-3.5, 3.5, 0], fov: 70 }}
           style={{
             // height: "580px",
             // width: "420px",
             height: "100%",
             width: "100%",
             position: "absolute",
-            left: "-20%",
-            bottom: "-20%"
+            left: "-27%",
+            bottom: "-24%"
             // transform: "translateY(20%)"
             // transform: "translateY(100px)"
           }}>
@@ -61,7 +62,10 @@ export const CokeWrap = (props: Props) => {
             {/* <OrbitControls enableZoom={false} /> */}
             <ambientLight intensity={0.5} />
             <directionalLight position={[-2, 5, 2]} intensity={1} />
-            <Coke />
+            {/* <Coke /> */}
+            <Rotate>
+              <Coke rotation={[0.2, 2, 0.2]} position={[0, 0, 0]} scale={1.5} />
+            </Rotate>
           </Suspense>
         </Canvas>
         <Flex
@@ -73,29 +77,32 @@ export const CokeWrap = (props: Props) => {
             //   backgroundColor: "primary",
             position: "absolute",
             bottom: "0%",
-            left: "18px",
-            height: "30%",
+            height: "40%",
             //   width: "280px",
             width: "100%",
             fontWeight: "bold",
             color: "black",
-            fontSize: "20px",
+            fontSize: "18px",
             lineHeight: "20px",
-            letterSpacing: "1px",
             background: `linear-gradient(180deg, rgba(245,244,233,0) 0%,
             rgba(245,244,233,0.5) 50%,
             rgba(245,244,233,0.9) 65%,
-             rgba(245,244,233,1) 100%)`
+             rgba(245,244,233,1) 100%)`,
+            fontFamily: "Poppins",
+            gap: 8,
+            letterSpacing: "-0.8px"
           }}>
-          Healthy and delicious. <br />
-          Headlthy
+          Healthy and delicious.
           <Text
             sx={{
               color: "gray",
               // fontSize: "24px",
-              lineHeight: "35px",
+              lineHeight: "28px",
               fontWeight: "500",
-              pt: "0px"
+              pt: "0px",
+              letterSpacing: "0px",
+              fontSize: "17px",
+              mb: "22px"
             }}>
             Express a fresh and fun feel to <br />
             add the other taste add
