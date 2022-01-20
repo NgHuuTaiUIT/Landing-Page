@@ -72,8 +72,8 @@ const Scene2 = () => {
           </Text>
           <Text sx={{ fontSize: "22px", lineHeight: 1.28, fontWeight: "600" }}>
             No matter which sport is your passion - everyone needs hydration. So
-            why not choose a natural and delicious option with CocoCoast's range
-            of coconut water. No added sugar or preservatives.
+            why not choose a natural and delicious option with CocoCoast&apos; s
+            range of coconut water. No added sugar or preservatives.
           </Text>
         </Box>
       </Flex>
