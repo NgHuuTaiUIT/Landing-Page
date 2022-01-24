@@ -1,8 +1,9 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Suspense, useState } from "react";
 import { CokeWrap } from "../element/coke-wrap";
 import Heading from "../element/heading";
-
+import Coke from "../three/Coke1";
 const Scene1 = () => {
   //   const [open, setOpen] = useState(true);
 
@@ -17,6 +18,7 @@ const Scene1 = () => {
       {/* <TrailCoke open={true}> */}
 
       {/* </TrailCoke> */}
+
       <Box sx={{ flex: 1, height: "100%", position: "relative" }}>
         <CokeWrap />
       </Box>
