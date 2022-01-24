@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Scene1 from "../components/Scene/scene1";
 import Scene2 from "../components/Scene/scene2";
 const Home: NextPage = () => {
-  const [scene, setScene] = useState(0);
+  const [scene, setScene] = useState(1);
 
   // console.log(scene);
   // useEffect(() => {

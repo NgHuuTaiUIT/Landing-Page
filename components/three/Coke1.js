@@ -8,10 +8,12 @@ title: French Coke can
 
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export default function Model({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/coke.gltf");
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
