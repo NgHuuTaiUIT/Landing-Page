@@ -15,7 +15,6 @@ const Home: NextPage = () => {
     document.addEventListener("click", () => {
       setScene(scene + 1 >= 3 ? 0 : scene + 1);
     });
-    return () => document.removeEventListener("click", null);
   }, [scene]);
   return (
     <Box
