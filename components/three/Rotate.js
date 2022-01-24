@@ -7,7 +7,7 @@ export default function Rotate({ children, ...props }) {
   useFrame(state => {
     const t = state.clock.getElapsedTime();
     group.current.position.y = 0 + (1 + Math.sin(t / 0.4)) / 10;
-    group.current.rotation.y = -0.3 + (1 + Math.sin(t / 0.4)) / 8;
+    group.current.rotation.y = -0 + (1 + Math.sin(t / 0.4)) / 10;
   });
   return (
     <group ref={group} {...props} dispose={null}>

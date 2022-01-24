@@ -7,7 +7,7 @@ import Icon from "../common/icon";
 const MainLayout = (props: any) => {
   const { children, router } = props;
   return (
-    <Box as="main" pb={8}>
+    <Box as="main">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Landing Page</title>

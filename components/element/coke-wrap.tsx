@@ -64,7 +64,7 @@ export const CokeWrap = (props: Props) => {
             <directionalLight position={[-2, 5, 2]} intensity={1} />
             {/* <Coke /> */}
             <Rotate>
-              <Coke rotation={[0.2, 2, 0.2]} position={[0, 0, 0]} scale={1.5} />
+              {/* <Coke rotation={[0.2, 2, 0.2]} position={[0, 0, 0]} scale={1.5} /> */}
             </Rotate>
           </Suspense>
         </Canvas>
@@ -90,7 +90,9 @@ export const CokeWrap = (props: Props) => {
              rgba(245,244,233,1) 100%)`,
             fontFamily: "Poppins",
             gap: 8,
-            letterSpacing: "-0.8px"
+            letterSpacing: "-0.8px",
+            pb: "40px",
+            pl: "67px"
           }}>
           Healthy and delicious.
           <Text

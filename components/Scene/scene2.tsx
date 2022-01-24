@@ -15,20 +15,6 @@ const Scene2 = () => {
       align="start"
       sx={{ position: "relative", height: "100%", overflow: "hidden" }}>
       <Canvas
-        // camera={{ position: [-3, -2.5, 2], fov: 75 }}
-        /*
-        NOTE:Scene 1
-         canvas position: 0,-2.5,5 
-         <group rotation={[-0.85, 0.3, -0.8]}>
-        <group position={[-0.3, 0.4, -0.4]} scale={0.65}>
-        */
-        /*
-        NOTE:Scene 3
-         canvas position: 0,-2.5,5 
-         <group rotation={[-1, 0, -0.4]}>
-         <group position={[0, 0, -0.8]} scale={0.65}>
-        */
-        // camera={{ position: [-3.5, 7, 0], fov: 70, near: 0.02 }}
         camera={{ position: [0, 0, 6], fov: 70, near: 0.02 }}
         style={{
           height: "100%",

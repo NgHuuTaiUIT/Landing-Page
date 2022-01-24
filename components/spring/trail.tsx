@@ -90,7 +90,8 @@ export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
     <Box
       sx={{
         height: "100%",
-        position: "relative"
+        position: "relative",
+        left: "-10%"
       }}>
       {trail.map(({ height, opacity, transform, ...style }, index) => (
         <animated.div
@@ -107,7 +108,7 @@ export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
             // letterSpacing: "-0.05em",
             // willChange: "transform, opacity",
             // overflow: "hidden"
-            height: "75%",
+            height: "80%",
             position: "absolute",
             width: "100%",
             overflow: "hidden"

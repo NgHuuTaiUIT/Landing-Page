@@ -15,7 +15,7 @@ const Background = () => {
     pb: "50px"
   };
   return (
-    <Flex position="absolute" sx={{ inset: 0 }} bg="primary">
+    <Flex position="absolute" sx={{ inset: 0, zIndex: 1 }}>
       <Flex sx={commonStyles}>
         <Icon height="30px" width="30px" icon="/assets/cup.svg" />
         <Footer />
