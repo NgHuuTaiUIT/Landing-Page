@@ -15,7 +15,7 @@ const Scene3 = () => {
         overflow: "hidden",
         zIndex: "-2"
       }}>
-      <Canvas
+      {/* <Canvas
         camera={{ position: [0, 0, 6], fov: 70, near: 0.02 }}
         style={{
           height: "100%",
@@ -32,7 +32,7 @@ const Scene3 = () => {
             scale={[1.5, 1.5, 1.5]}
           />
         </Suspense>
-      </Canvas>
+      </Canvas> */}
       <Box
         sx={{
           position: "absolute",

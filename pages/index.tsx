@@ -19,18 +19,18 @@ const Home: NextPage = () => {
   return (
     <Box
       sx={{
-        height: "300%",
-        transform: `translateY(-${scene * 33}%)`,
-        transition: "transform 1s linear",
+        height: "100%",
+        width: "100%",
         backgroundColor: scene !== 2 ? "primary" : "secondary"
       }}>
       <Canvas
         camera={{ position: [0, 0, 6], fov: 70, near: 0.02 }}
         style={{
-          height: "33%",
+          height: "100%",
           width: "100%",
           position: "absolute",
-          left: 0
+          left: 0,
+          zIndex: scene === 2 ? 9 : 0
         }}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.5} />
@@ -50,10 +50,16 @@ const Home: NextPage = () => {
           {/* </Rotate> */}
         </Suspense>
       </Canvas>
-
-      <Box height="33%">{scene === 0 && <Scene1 />}</Box>
-      <Box height="33%">{scene === 1 && <Scene2 />}</Box>
-      <Box height="33%">{scene === 2 && <Scene3 />}</Box>
+      <Box
+        sx={{
+          height: "300%",
+          transform: `translateY(-${scene * 33}%)`,
+          transition: "transform 1s linear"
+        }}>
+        <Box height="33%">{scene === 0 && <Scene1 />}</Box>
+        <Box height="33%">{scene === 1 && <Scene2 />}</Box>
+        <Box height="33%">{scene === 2 && <Scene3 />}</Box>
+      </Box>
     </Box>
   );
 };

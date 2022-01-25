@@ -10,21 +10,65 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useSpring, a } from "@react-spring/three";
+import { LessStencilFunc } from "three";
 
 export default function Model({ ...props }) {
   const { rotation, position, scene } = props;
+
   const group = useRef();
   const { nodes, materials } = useGLTF("/coke.gltf");
+  let checkX = false;
+  let checkY = false;
+  let checkZ = false;
+
   useFrame(state => {
     const t = state.clock.getElapsedTime();
-    console.log(props);
+    // console.log(props);
     if (props.scene === 0) {
       group.current.position.y = -0.2 + (1 + Math.sin(t / 0.4)) / 10;
       group.current.rotation.y = -0.7 + (1 + Math.sin(t / 0.4)) / 10;
+    } else if (scene === 1) {
+      const [rX, rY, rZ] = rotation;
+
+      group.current.position.x >= -2.8
+        ? (group.current.position.x -= 1.8 / 20)
+        : 0;
+
+      if (!checkX || !checkY || !checkZ) {
+        group.current.rotation.x >= 0
+          ? (group.current.rotation.x -= 0.6 / 20)
+          : (checkX = true);
+        group.current.rotation.y <= 2
+          ? (group.current.rotation.y += 2 / 20)
+          : (checkY = true);
+        group.current.rotation.z <= 0
+          ? (group.current.rotation.z += 0.2 / 20)
+          : (checkZ = true);
+      }
+      if (checkX && checkY && checkZ) {
+        group.current.rotation.y <= 4.5
+          ? (group.current.rotation.y += 2.5 / 20)
+          : (checkY = true);
+        group.current.rotation.z >= -0.5
+          ? (group.current.rotation.z += -0.5 / 20)
+          : (checkZ = true);
+      }
+    } else if (scene === 2) {
+      console.log(group.current.rotation);
+      group.current.position.x <= 0
+        ? (group.current.position.x += 2.8 / 40)
+        : 0;
+      group.current.rotation.y >= -2.3
+        ? (group.current.rotation.y -= 6 / 40)
+        : (checkY = true);
+      // group.current.rotation.y = -2.5;
+      group.current.rotation.z <= 0
+        ? (group.current.rotation.z += 0.5 / 40)
+        : (checkZ = true);
     }
   });
   return (
-    <a.group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group position={[0, 0, 0]} scale={0.35}>
           <mesh
@@ -33,7 +77,7 @@ export default function Model({ ...props }) {
           />
         </group>
       </group>
-    </a.group>
+    </group>
   );
 }
 
