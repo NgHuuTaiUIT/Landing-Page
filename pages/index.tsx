@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   // console.log(scene);
   useEffect(() => {
     document.addEventListener("click", () => {
-      setScene(scene + 1 >= 3 ? 0 : scene + 1);
+      setScene(scene + 1 >= 3 ? scene : scene + 1);
     });
   }, [scene]);
   return (
