@@ -2,9 +2,11 @@ import { Box } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import type { NextPage } from "next";
 import { Suspense, useEffect, useState } from "react";
+import BackgroundColor from "../components/common/background-color";
 import Scene1 from "../components/Scene/scene1";
 import Scene2 from "../components/Scene/scene2";
 import Scene3 from "../components/Scene/scene3";
+import { AnimatedCoke, TrailCoke } from "../components/spring/trail";
 import Coke from "../components/three/Coke1";
 import Rotate from "../components/three/Rotate";
 const Home: NextPage = () => {
@@ -16,51 +18,66 @@ const Home: NextPage = () => {
       setScene(scene + 1 >= 3 ? scene : scene + 1);
     });
   }, [scene]);
+
   return (
-    <Box
-      sx={{
-        height: "100%",
-        width: "100%",
-        backgroundColor: scene !== 2 ? "primary" : "secondary"
-      }}>
-      <Canvas
-        camera={{ position: [0, 0, 6], fov: 70, near: 0.02 }}
-        style={{
+    <>
+      <BackgroundColor index={scene} />
+
+      <Box
+        sx={{
           height: "100%",
           width: "100%",
-          position: "absolute",
-          left: 0,
-          zIndex: scene === 2 ? 9 : 0
+          backgroundColor: scene !== 2 ? "primary" : "secondary",
+          overflow: "hidden"
         }}>
-        <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[-2, 5, 2]} intensity={1} />
-          {/* <Coke
+        <AnimatedCoke open={true} scene={scene}>
+          <Canvas
+            camera={{ position: [0, 0, 6], fov: 70, near: 0.02 }}
+            style={{
+              height: "100%",
+              width: "100%",
+              position: "absolute",
+              left: 0
+              // zIndex: scene === 2 ? 9 : 0
+            }}>
+            <Suspense fallback={null}>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[-2, 5, 2]} intensity={1} />
+              {/* <Coke
             rotation={[0, -2.3, 0]}
             position={[0, -0.2, 0]}
             scale={[1.5, 1.5, 1.5]}
           /> */}
-          {/* <Rotate> */}
-          <Coke
-            scene={scene}
-            rotation={[0.6, -0.7, -0.2]}
-            position={[1.8, -0.2, -0.3]}
-            scale={[1.5, 1.5, 1.5]}
-          />
-          {/* </Rotate> */}
-        </Suspense>
-      </Canvas>
-      <Box
-        sx={{
-          height: "300%",
-          transform: `translateY(-${scene * 33}%)`,
-          transition: "transform 1s linear"
-        }}>
-        <Box height="33%">{scene === 0 && <Scene1 />}</Box>
-        <Box height="33%">{scene === 1 && <Scene2 />}</Box>
-        <Box height="33%">{scene === 2 && <Scene3 />}</Box>
+              {/* <Rotate> */}
+              <Coke
+                scene={scene}
+                rotation={[0.6, -0.7, -0.2]}
+                position={[1.8, -0.2, -0.3]}
+                scale={[1.5, 1.5, 1.5]}
+              />
+              {/* </Rotate> */}
+            </Suspense>
+          </Canvas>
+        </AnimatedCoke>
+
+        <Box
+          sx={{
+            height: "300%",
+            transform: `translateY(-${scene * 33.33}%)`,
+            transition: "transform 1s linear"
+          }}>
+          <Box height="33.33%">
+            <Scene1 />
+          </Box>
+          <Box height="33.33%">
+            <Scene2 show={scene === 1} />
+          </Box>
+          <Box height="33.33%" bg="secondary">
+            <Scene3 show={scene === 2} />
+          </Box>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

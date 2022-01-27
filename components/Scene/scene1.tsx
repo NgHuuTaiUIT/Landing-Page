@@ -15,9 +15,6 @@ const Scene1 = () => {
       // bg="primary"
     >
       <Heading />
-      {/* <TrailCoke open={true}> */}
-
-      {/* </TrailCoke> */}
 
       <Box sx={{ flex: 1, height: "100%", position: "relative" }}>
         <CokeWrap />

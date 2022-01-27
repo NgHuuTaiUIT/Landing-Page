@@ -1,8 +1,12 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
-import { useTrail, animated } from "react-spring";
+import { useTrail, animated, useSpring } from "react-spring";
 
-export const TrailText: React.FC<{ open: boolean }> = ({ open, children }) => {
+export const TrailText: React.FC<{ open: boolean; delay?: number }> = ({
+  open,
+  children,
+  delay = 0
+}) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
     config: { mass: 5, tension: 2000, friction: 200, duration: 700 },
@@ -10,7 +14,8 @@ export const TrailText: React.FC<{ open: boolean }> = ({ open, children }) => {
     // y: open ? 0 : 200,
     transform: open ? `translateY(0px)` : `translateY(150px)`,
     height: open ? 110 : 0,
-    from: { opacity: 1, height: 0, transform: `translateY(150px)` }
+    from: { opacity: 1, height: 0, transform: `translateY(150px)` },
+    delay
   });
   return (
     <div>
@@ -78,7 +83,8 @@ export const TrailButton: React.FC<{ open: boolean }> = ({
 export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200, duration: 900 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
+    delay: 500,
     opacity: open ? 1 : 0,
     // y: open ? 0 : 200,
     transform: open ? `translateY(0%)` : `translateY(100%)`,
@@ -120,5 +126,33 @@ export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
         </animated.div>
       ))}
     </Box>
+  );
+};
+
+export const AnimatedCoke: React.FC<{ open: boolean; scene: number }> = ({
+  open,
+  children,
+  scene
+}) => {
+  const styles = useSpring({
+    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
+    // height: open?"100%":"0%"
+
+    from: { opacity: 0, transform: "translateY(50%)" },
+    to: { opacity: 1, transform: "translateY(0%)" }
+  });
+  // ...
+  return (
+    <animated.div
+      style={{
+        ...styles,
+        height: "100%",
+        width: "100%",
+        position: "absolute",
+        left: 0,
+        zIndex: scene === 2 ? 9 : 0
+      }}>
+      {children}
+    </animated.div>
   );
 };

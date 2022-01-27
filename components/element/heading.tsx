@@ -64,13 +64,7 @@ const Footer = () => {
 
 const Heading = (props: Props) => {
   const [open, setOpen] = useState(true);
-  useEffect(() => {
-    // setOpen(false);
-    // const a = setInterval(() => setOpen(!open), 3000);
-    // return () => clearInterval(a);
-  }, []);
 
-  // console.log(open);
   return (
     <Flex
       width="50%"
