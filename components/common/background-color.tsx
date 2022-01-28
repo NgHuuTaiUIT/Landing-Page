@@ -39,10 +39,12 @@ const BackgroundColor = ({ index }: { index: number }) => {
     <Box
       sx={{
         width: "100vw",
-        height: "105vh",
+        height: "100vh",
         position: "absolute",
-        top: "-10%",
-        left: "-18%",
+        // top: "-10%",
+        // left: "-18%",
+        left: 0,
+        top: 0,
         zIndex: -1
       }}>
       {transitions((style, i) => {
