@@ -1,9 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useState } from "react";
 import { CokeWrap } from "../element/coke-wrap";
 import Heading from "../element/heading";
-import Coke from "../three/Coke1";
 const Scene1 = ({ scene }: { scene: number }) => {
   return (
     <Flex

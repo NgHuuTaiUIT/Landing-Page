@@ -1,10 +1,7 @@
-import { Box, Flex, position } from "@chakra-ui/react";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Box, Flex } from "@chakra-ui/react";
 import { animated, useSpring } from "react-spring";
 import Head from "../common/head";
 import Wave from "../common/wave";
-import Coke from "../three/Coke1";
 
 const Scene3 = ({ show }: { show: boolean }) => {
   const circleAnimated = useSpring({

@@ -1,14 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
 import { animated, useSpring } from "react-spring";
 import Head from "../common/head";
-import { CokeWrap } from "../element/coke-wrap";
-import Heading from "../element/heading";
-import { TrailText } from "../spring/trail";
-import Coke from "../three/Coke1";
-import Rotate from "../three/Rotate2";
 
 const Scene2 = ({ show }: { show: boolean }) => {
   const headAnimated = useSpring({
