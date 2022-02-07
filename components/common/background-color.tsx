@@ -22,8 +22,6 @@ const pages: ((
 ];
 
 const BackgroundColor = ({ index }: { index: number }) => {
-  //   const [index, set] = useState(0);
-  //   const onClick = useCallback(() => set(state => (state + 1) % 3), []);
   const transRef = useSpringRef();
   const transitions = useTransition(index, {
     ref: transRef,

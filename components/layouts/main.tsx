@@ -20,7 +20,8 @@ const MainLayout = (props: any) => {
         height="100vh"
         // bg="secondary"
         position="relative"
-        // overflow="hidden"
+        overflow="hidden"
+        p={0}
         // mt={10}
       >
         {/* <Background /> */}

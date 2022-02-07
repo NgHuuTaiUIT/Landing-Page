@@ -22,7 +22,6 @@ const Scene2 = ({ show }: { show: boolean }) => {
       transform: `translateY(150px)`,
       overflow: "hidden"
     }
-    // delay: 400
   });
 
   const textAnimated = useSpring({
@@ -46,13 +45,11 @@ const Scene2 = ({ show }: { show: boolean }) => {
           flexShrink: 1
         }}>
         <Box sx={{ width: "60%", height: "33%" }}>
-          {/* <TrailText open={show}> */}
           <Box sx={{ overflow: "hidden" }}>
             <animated.div style={{ ...headAnimated }}>
               <Head size={85} lineHeight={100}>
                 NEW FLAVOUR
               </Head>
-              {/* </TrailText> */}
             </animated.div>
           </Box>
 
@@ -76,8 +73,6 @@ const Scene2 = ({ show }: { show: boolean }) => {
               preservatives.
             </Text>
           </animated.div>
-
-          {/* </TrailText> */}
         </Box>
       </Flex>
     </Flex>

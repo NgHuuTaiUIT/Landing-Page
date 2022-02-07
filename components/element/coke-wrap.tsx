@@ -9,7 +9,7 @@ import Rotate from "../three/Rotate";
 
 interface Props {}
 
-export const CokeWrap = (props: Props) => {
+export const CokeWrap = ({ scene }: { scene: number }) => {
   const [open, setOpen] = useState(true);
   //   const transitions = useTransition(open, {
   //     loop: true,
@@ -84,10 +84,13 @@ export const CokeWrap = (props: Props) => {
             color: "black",
             fontSize: "18px",
             lineHeight: "20px",
-            background: `linear-gradient(180deg, rgba(245,244,233,0) 0%,
+            background:
+              scene === 0
+                ? `linear-gradient(180deg, rgba(245,244,233,0) 0%,
             rgba(245,244,233,0.5) 50%,
             rgba(245,244,233,0.9) 65%,
-             rgba(245,244,233,1) 100%)`,
+             rgba(245,244,233,1) 100%)`
+                : "rgba(245,244,233,0)",
             fontFamily: "Poppins",
             gap: 8,
             letterSpacing: "-0.8px",
