@@ -1,17 +1,14 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import type { NextPage } from "next";
 import { Suspense, useEffect, useState } from "react";
-import { animated, useSpring } from "react-spring";
-import BackgroundColor from "../components/common/background-color";
 import Background from "../components/common/background-icon";
 import Wave from "../components/common/wave";
-import Scene1 from "../components/scene/scene1";
-import Scene2 from "../components/scene/scene2";
-import Scene3 from "../components/scene/scene3";
-import { AnimatedCoke, TrailCoke } from "../components/spring/trail";
+import Scene1 from "../components/Scene/scene1";
+import Scene2 from "../components/Scene/scene2";
+import Scene3 from "../components/Scene/scene3";
+import { AnimatedCoke } from "../components/spring/trail";
 import Coke from "../components/three/Coke1";
-import Rotate from "../components/three/Rotate";
 const Home: NextPage = () => {
   const [scene, setScene] = useState(0);
 
