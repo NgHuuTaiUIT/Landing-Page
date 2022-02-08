@@ -23,13 +23,13 @@ export default function Model({ ...props }) {
 
   useFrame(state => {
     const t = state.clock.getElapsedTime();
+    const [rX, rY, rZ] = rotation;
+    const [pX, pY, pZ] = position;
     // console.log(props);
     if (props.scene === 0) {
       group.current.position.y = -0.2 + (1 + Math.sin(t / 0.4)) / 10;
       group.current.rotation.y = -0.7 + (1 + Math.sin(t / 0.4)) / 10;
     } else if (scene === 1) {
-      const [rX, rY, rZ] = rotation;
-
       group.current.position.x >= -2.8
         ? (group.current.position.x -= 1.8 / 20)
         : 0;
@@ -52,6 +52,10 @@ export default function Model({ ...props }) {
         group.current.rotation.z >= -0.5
           ? (group.current.rotation.z += -0.5 / 20)
           : (checkZ = true);
+        // group.current.position.y = pY + (1 + Math.sin(t / 0.4)) / 10;
+        group.current.rotation.y >= 4.5
+          ? (group.current.rotation.y = 4.5 + (1 + Math.sin(t / 0.4)) / 20)
+          : null;
       }
     } else if (scene === 2) {
       console.log(group.current.rotation);

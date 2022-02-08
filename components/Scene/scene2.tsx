@@ -1,8 +1,13 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { animated, useSpring } from "react-spring";
 import Head from "../common/head";
+import Lottie from "react-lottie";
+import animationData from "../../lotties/liquid-splash.json";
+import { useState } from "react";
 
 const Scene2 = ({ show }: { show: boolean }) => {
+  const [isStopped, setIsStoped] = useState(false);
+
   const headAnimated = useSpring({
     config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
     opacity: show ? 1 : 0,
@@ -22,12 +27,37 @@ const Scene2 = ({ show }: { show: boolean }) => {
     opacity: show ? 1 : 0,
     delay: 800
   });
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+
   return (
     <Flex
       justify="center"
       align="start"
       sx={{ position: "relative", height: "100%", overflow: "hidden" }}>
-      <Box sx={{ width: "60%" }}></Box>
+      <Box sx={{ width: "60%", height: "100%" }}>
+        <Lottie
+          options={defaultOptions}
+          height={400}
+          width={400}
+          isStopped={isStopped}
+          speed={0.8}
+          // onComplete={() => setIsStoped(true)}
+          style={{
+            marginTop: "40%",
+            marginLeft: "25%",
+            width: "60%",
+            height: "50%"
+          }}
+        />
+      </Box>
       <Flex
         sx={{
           width: "53%",
