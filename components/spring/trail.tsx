@@ -80,11 +80,14 @@ export const TrailButton: React.FC<{ open: boolean }> = ({
   );
 };
 
-export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
+export const TrailDescriptions: React.FC<{ open: boolean }> = ({
+  open,
+  children
+}) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
-    delay: 500,
+    config: { mass: 5, tension: 1000, friction: 2000, duration: 800 },
+    delay: 300,
     opacity: open ? 1 : 0,
     // y: open ? 0 : 200,
     transform: open ? `translateY(0%)` : `translateY(100%)`,
@@ -95,7 +98,7 @@ export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
   return (
     <Box
       sx={{
-        height: "100%",
+        width: "100%",
         position: "relative",
         left: "-10%"
       }}>
@@ -104,18 +107,8 @@ export const TrailCoke: React.FC<{ open: boolean }> = ({ open, children }) => {
           key={index}
           style={{
             ...style,
-            // position: "relative",
-            // width: "100%",
-            // height: "130px",
-            // lineHeight: "80px",
-            // color: "black",
-            // fontSize: "10em",
-            // fontWeight: "800",
-            // letterSpacing: "-0.05em",
-            // willChange: "transform, opacity",
-            // overflow: "hidden"
-            height: "80%",
-            position: "absolute",
+            // height: "70%",
+            // position: "absolute",
             width: "100%",
             overflow: "hidden"
           }}>

@@ -64,25 +64,13 @@ const Home: NextPage = () => {
           </Canvas>
         </AnimatedCoke>
 
-        <Parallax ref={parallax} pages={3}>
-          <ParallaxLayer offset={0} speed={1}>
-            <Scene1 scene={scene} />
-          </ParallaxLayer>
-          <ParallaxLayer offset={1} speed={1}>
-            <Scene2 show={scene === 1} />
-          </ParallaxLayer>
-          <ParallaxLayer offset={1} speed={1}>
-            <Scene3 show={scene === 2} />
-          </ParallaxLayer>
-        </Parallax>
-        {/* <Box
+        <Box
           sx={{
             height: "300%",
             transform: `translateY(-${scene * 33.33}%)`,
             transition: "transform 1s linear"
           }}>
-         
-            <Box height="33.33%">
+          <Box height="33.33%">
             <Scene1 scene={scene} />
           </Box>
           <Box height="33.33%">
@@ -92,7 +80,7 @@ const Home: NextPage = () => {
           <Box height="33.33%">
             <Scene3 show={scene === 2} />
           </Box>
-        </Box> */}
+        </Box>
       </Box>
     </>
   );
