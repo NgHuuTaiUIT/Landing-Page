@@ -58,7 +58,6 @@ export default function Model({ ...props }) {
           : null;
       }
     } else if (scene === 2) {
-      console.log(group.current.rotation);
       group.current.position.x <= 0
         ? (group.current.position.x += 2.8 / 40)
         : 0;
@@ -70,6 +69,8 @@ export default function Model({ ...props }) {
         ? (group.current.rotation.z += 0.5 / 40)
         : (checkZ = true);
     }
+    // group.current.rotation.x = 0.8;
+    // group.current.rotation.z = 0.25;
   });
   return (
     <group ref={group} {...props} dispose={null}>

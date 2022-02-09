@@ -3,10 +3,10 @@ import { animated, useSpring } from "react-spring";
 import Head from "../common/head";
 import Lottie from "react-lottie";
 import animationData from "../../lotties/liquid-splash.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Scene2 = ({ show }: { show: boolean }) => {
-  const [isStopped, setIsStoped] = useState(false);
+  const [isStopped, setIsStopped] = useState(false);
 
   const headAnimated = useSpring({
     config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
@@ -29,8 +29,8 @@ const Scene2 = ({ show }: { show: boolean }) => {
   });
 
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
+    loop: false,
+    autoplay: false,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
@@ -44,12 +44,17 @@ const Scene2 = ({ show }: { show: boolean }) => {
       sx={{ position: "relative", height: "100%", overflow: "hidden" }}>
       <Box sx={{ width: "60%", height: "100%" }}>
         <Lottie
+          isStopped={isStopped}
           options={defaultOptions}
           height={400}
           width={400}
-          isStopped={isStopped}
           speed={0.8}
-          // onComplete={() => setIsStoped(true)}
+          // eventListeners={[
+          //   {
+          //     eventName: "complete",
+          //     callback: () => console.log("the animation completed:")
+          //   }
+          // ]}
           style={{
             marginTop: "40%",
             marginLeft: "25%",
@@ -66,7 +71,13 @@ const Scene2 = ({ show }: { show: boolean }) => {
           justifyContent: "center",
           flexShrink: 1
         }}>
-        <Box sx={{ width: "60%", height: "33%" }}>
+        <Box
+          sx={{
+            width: "60%",
+            height: "33%",
+            ml: "-5px",
+            mt: "-6px"
+          }}>
           <Box sx={{ overflow: "hidden" }}>
             <animated.div style={{ ...headAnimated }}>
               <Head size={85} lineHeight={100}>
@@ -78,17 +89,24 @@ const Scene2 = ({ show }: { show: boolean }) => {
           <animated.div style={{ ...textAnimated }}>
             <Text
               sx={{
-                fontSize: "24px",
+                fontSize: "17px",
                 fontWeight: "bold",
-                letterSpacing: 2,
-                lineHeight: 1,
-                pb: 8
+                letterSpacing: 0.2,
+                lineHeight: 1.3,
+                pb: "32px",
+                pt: "10px",
+                fontFamily: "Poppins"
               }}>
               100% Young green mango
               <br /> and aromatic yuzu
             </Text>
             <Text
-              sx={{ fontSize: "22px", lineHeight: 1.28, fontWeight: "600" }}>
+              sx={{
+                fontSize: "17px",
+                lineHeight: 1.5,
+                fontWeight: "500",
+                fontFamily: "Poppins"
+              }}>
               No matter which sport is your passion - everyone needs hydration.
               So why not choose a natural and delicious option with
               CocoCoast&apos; s range of coconut water. No added sugar or

@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import type { NextPage } from "next";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Background from "../components/common/background-icon";
 import Wave from "../components/common/wave";
 import Scene1 from "../components/Scene/scene1";
@@ -9,8 +9,11 @@ import Scene2 from "../components/Scene/scene2";
 import Scene3 from "../components/Scene/scene3";
 import { AnimatedCoke } from "../components/spring/trail";
 import Coke from "../components/three/Coke1";
+import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
+
 const Home: NextPage = () => {
   const [scene, setScene] = useState(0);
+  const parallax = useRef<IParallax>(null!);
 
   // console.log(scene);
   useEffect(() => {
@@ -61,13 +64,25 @@ const Home: NextPage = () => {
           </Canvas>
         </AnimatedCoke>
 
-        <Box
+        <Parallax ref={parallax} pages={3}>
+          <ParallaxLayer offset={0} speed={1}>
+            <Scene1 scene={scene} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={1} speed={1}>
+            <Scene2 show={scene === 1} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={1} speed={1}>
+            <Scene3 show={scene === 2} />
+          </ParallaxLayer>
+        </Parallax>
+        {/* <Box
           sx={{
             height: "300%",
             transform: `translateY(-${scene * 33.33}%)`,
             transition: "transform 1s linear"
           }}>
-          <Box height="33.33%">
+         
+            <Box height="33.33%">
             <Scene1 scene={scene} />
           </Box>
           <Box height="33.33%">
@@ -77,7 +92,7 @@ const Home: NextPage = () => {
           <Box height="33.33%">
             <Scene3 show={scene === 2} />
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </>
   );
