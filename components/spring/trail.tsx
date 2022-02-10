@@ -9,7 +9,7 @@ export const TrailText: React.FC<{ open: boolean; delay?: number }> = ({
 }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200, duration: 700 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
     opacity: open ? 1 : 0,
     // y: open ? 0 : 200,
     transform: open ? `translateY(0px)` : `translateY(150px)`,
@@ -43,17 +43,18 @@ export const TrailText: React.FC<{ open: boolean; delay?: number }> = ({
   );
 };
 
-export const TrailButton: React.FC<{ open: boolean }> = ({
+export const TrailButton: React.FC<{ open: boolean; delay?: number }> = ({
   open,
-  children
+  children,
+  delay = 0
 }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200, duration: 700 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
     opacity: open ? 1 : 0,
     height: open ? 110 : 0,
-    delay: 0,
-    from: { opacity: 0, height: 0 }
+    delay,
+    from: { opacity: -1, height: 0 }
   });
   return (
     <div>
@@ -86,8 +87,8 @@ export const TrailDescriptions: React.FC<{ open: boolean }> = ({
 }) => {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 1000, friction: 2000, duration: 800 },
-    delay: 300,
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
+    delay: 500,
     opacity: open ? 1 : 0,
     // y: open ? 0 : 200,
     transform: open ? `translateY(0%)` : `translateY(100%)`,
@@ -128,7 +129,7 @@ export const AnimatedCoke: React.FC<{ open: boolean; scene: number }> = ({
   scene
 }) => {
   const styles = useSpring({
-    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
     // height: open?"100%":"0%"
 
     from: { opacity: 0, transform: "translateY(50%)" },

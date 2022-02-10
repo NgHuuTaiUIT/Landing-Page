@@ -6,13 +6,24 @@ import animationData from "../../lotties/liquid-splash.json";
 import { useEffect, useState } from "react";
 
 const Scene2 = ({ show }: { show: boolean }) => {
-  const [isStopped, setIsStopped] = useState(false);
+  const [isShowSplash, setIsShowSplash] = useState(false);
+  console.log("Start", isShowSplash);
+  useEffect(() => {
+    const timeOutSetShowSplash = setTimeout(() => {
+      setIsShowSplash(true);
+    }, 800);
+
+    return () => {
+      clearTimeout(timeOutSetShowSplash);
+    };
+  }, []);
 
   const headAnimated = useSpring({
-    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
     opacity: show ? 1 : 0,
     transform: show ? `translateY(0px)` : `translateY(150px)`,
     // height: show ? 110 : 0,
+    delay: 300,
     from: {
       opacity: 1,
       height: "100px",
@@ -22,15 +33,20 @@ const Scene2 = ({ show }: { show: boolean }) => {
   });
 
   const textAnimated = useSpring({
-    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
-    from: { opacity: 0 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
+    from: { opacity: -1 },
     opacity: show ? 1 : 0,
-    delay: 800
+    delay: 500
   });
-
+  const text2Animated = useSpring({
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
+    from: { opacity: -1 },
+    opacity: show ? 1 : 0,
+    delay: 700
+  });
   const defaultOptions = {
     loop: false,
-    autoplay: false,
+    autoplay: true,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
@@ -43,25 +59,26 @@ const Scene2 = ({ show }: { show: boolean }) => {
       align="start"
       sx={{ position: "relative", height: "100%", overflow: "hidden" }}>
       <Box sx={{ width: "60%", height: "100%" }}>
-        <Lottie
-          isStopped={isStopped}
-          options={defaultOptions}
-          height={400}
-          width={400}
-          speed={0.8}
-          // eventListeners={[
-          //   {
-          //     eventName: "complete",
-          //     callback: () => console.log("the animation completed:")
-          //   }
-          // ]}
-          style={{
-            marginTop: "40%",
-            marginLeft: "25%",
-            width: "60%",
-            height: "50%"
-          }}
-        />
+        {isShowSplash && (
+          <Lottie
+            options={defaultOptions}
+            height={400}
+            width={400}
+            speed={0.8}
+            // eventListeners={[
+            //   {
+            //     eventName: "complete",
+            //     callback: () => console.log("the animation completed:")
+            //   }
+            // ]}
+            style={{
+              marginTop: "40%",
+              marginLeft: "25%",
+              width: "60%",
+              height: "50%"
+            }}
+          />
+        )}
       </Box>
       <Flex
         sx={{
@@ -100,6 +117,8 @@ const Scene2 = ({ show }: { show: boolean }) => {
               100% Young green mango
               <br /> and aromatic yuzu
             </Text>
+          </animated.div>
+          <animated.div style={{ ...text2Animated }}>
             <Text
               sx={{
                 fontSize: "17px",

@@ -31,26 +31,26 @@ export default function Model({ ...props }) {
       group.current.rotation.y = -0.7 + (1 + Math.sin(t / 0.4)) / 10;
     } else if (scene === 1) {
       group.current.position.x >= -2.8
-        ? (group.current.position.x -= 1.8 / 20)
+        ? (group.current.position.x -= 1.8 / 23)
         : 0;
 
       if (!checkX || !checkY || !checkZ) {
         group.current.rotation.x >= 0
-          ? (group.current.rotation.x -= 0.6 / 20)
+          ? (group.current.rotation.x -= 0.6 / 25)
           : (checkX = true);
         group.current.rotation.y <= 2
-          ? (group.current.rotation.y += 2 / 20)
+          ? (group.current.rotation.y += 2 / 25)
           : (checkY = true);
         group.current.rotation.z <= 0
-          ? (group.current.rotation.z += 0.2 / 20)
+          ? (group.current.rotation.z += 0.2 / 25)
           : (checkZ = true);
       }
       if (checkX && checkY && checkZ) {
         group.current.rotation.y <= 4.5
-          ? (group.current.rotation.y += 2.5 / 20)
+          ? (group.current.rotation.y += 2.5 / 25)
           : (checkY = true);
         group.current.rotation.z >= -0.5
-          ? (group.current.rotation.z += -0.5 / 20)
+          ? (group.current.rotation.z += -0.5 / 25)
           : (checkZ = true);
         // group.current.position.y = pY + (1 + Math.sin(t / 0.4)) / 10;
         group.current.rotation.y >= 4.5
@@ -59,14 +59,14 @@ export default function Model({ ...props }) {
       }
     } else if (scene === 2) {
       group.current.position.x <= 0
-        ? (group.current.position.x += 2.8 / 40)
+        ? (group.current.position.x += 2.8 / 60)
         : 0;
       group.current.rotation.y >= -2.3
-        ? (group.current.rotation.y -= 6 / 40)
+        ? (group.current.rotation.y -= 6 / 60)
         : (checkY = true);
       // group.current.rotation.y = -2.5;
       group.current.rotation.z <= 0
-        ? (group.current.rotation.z += 0.5 / 40)
+        ? (group.current.rotation.z += 0.5 / 60)
         : (checkZ = true);
     }
     // group.current.rotation.x = 0.8;

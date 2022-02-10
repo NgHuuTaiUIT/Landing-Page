@@ -78,12 +78,12 @@ const Heading = (props: Props) => {
           {/* <Head size={150}>MANGO</Head> */}
         </TrailText>
 
-        <TrailText open={open}>
+        <TrailText open={open} delay={300}>
           <Head size={150} style={{ padding: "5px 0" }}>
             DRINKS
           </Head>
         </TrailText>
-        <TrailButton open={open}>
+        <TrailButton open={open} delay={500}>
           <Button
             sx={{
               width: "165px",

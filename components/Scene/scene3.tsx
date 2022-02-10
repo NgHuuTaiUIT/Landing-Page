@@ -5,18 +5,21 @@ import Wave from "../common/wave";
 
 const Scene3 = ({ show }: { show: boolean }) => {
   const circleAnimated = useSpring({
-    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
-    from: { transform: "scale(0) translateY(-50%)", top: "70%" },
+    config: { mass: 1, tension: 280, friction: 1200, duration: 1000 },
+    from: {
+      transform: "scale(0) translateY(-50%)",
+      top: "70%",
+      transformOrigin: "bottom center"
+    },
     transform: show ? "scale(1) translateY(-50%)" : "scale(0) translateY(-50%)",
-    top: show ? "50%" : "70%",
-    delay: 100
+    top: show ? "50%" : "70%"
   });
 
   const waveAnimated = useSpring({
-    config: { mass: 5, tension: 2000, friction: 200, duration: 1000 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
     from: { transform: "translateY(100%)" },
     transform: show ? "translateY(-12%)" : "translateY(100%)",
-    delay: 100
+    delay: 300
   });
 
   const headAnimated = useSpring({
@@ -29,10 +32,10 @@ const Scene3 = ({ show }: { show: boolean }) => {
       transform: `translateY(150px)`,
       overflow: "hidden"
     },
-    delay: 600
+    delay: 500
   });
   const head2Animated = useSpring({
-    config: { mass: 5, tension: 2000, friction: 200, duration: 800 },
+    config: { mass: 5, tension: 2000, friction: 200, duration: 700 },
     opacity: show ? 1 : 0,
     transform: show ? `translateY(0px)` : `translateY(150px)`,
     from: {
@@ -59,9 +62,10 @@ const Scene3 = ({ show }: { show: boolean }) => {
           position: "absolute",
           height: "500px",
           width: "500px",
-          background: "white",
+          background: "#EE9092",
           borderRadius: "50%",
-          zIndex: -1
+          zIndex: -1,
+          overflow: "hidden"
         }}></animated.div>
       <animated.div
         style={{
@@ -78,7 +82,13 @@ const Scene3 = ({ show }: { show: boolean }) => {
 
           zIndex: -2
         }}>
-        <Wave show={show} top="50%" translateY={20} duration={200} />
+        <Wave
+          show={show}
+          top="50%"
+          translateY={20}
+          duration={200}
+          // delay={1000}
+        />
       </animated.div>
       <Box sx={{ width: "50%", textAlign: "center" }}>
         <Box sx={{ overflow: "auto" }}>

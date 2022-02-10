@@ -13,15 +13,13 @@ import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 
 const Home: NextPage = () => {
   const [scene, setScene] = useState(0);
-  const parallax = useRef<IParallax>(null!);
 
-  // console.log(scene);
   useEffect(() => {
     document.addEventListener("click", () => {
-      setScene(scene + 1 >= 3 ? scene : scene + 1);
+      scene + 1 >= 3 ? null : setScene(scene + 1);
     });
+    return () => document.removeEventListener("click", () => {});
   }, [scene]);
-
   return (
     <>
       <Wave show={scene === 2} top="-10%" delay={800} duration={800} />
@@ -74,11 +72,11 @@ const Home: NextPage = () => {
             <Scene1 scene={scene} />
           </Box>
           <Box height="33.33%">
-            <Scene2 show={scene === 1} />
+            {scene === 1 && <Scene2 show={scene === 1} />}
           </Box>
 
           <Box height="33.33%">
-            <Scene3 show={scene === 2} />
+            {scene === 2 && <Scene3 show={scene === 2} />}
           </Box>
         </Box>
       </Box>
