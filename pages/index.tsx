@@ -1,7 +1,14 @@
 import { Box } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import type { NextPage } from "next";
-import { Suspense, useEffect, useRef, useState } from "react";
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import Background from "../components/common/background-icon";
 import Wave from "../components/common/wave";
 import Scene1 from "../components/Scene/scene1";
@@ -14,12 +21,15 @@ import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 const Home: NextPage = () => {
   const [scene, setScene] = useState(0);
 
+  const updateScene = (scene: number) => {
+    scene + 1 >= 3 ? null : setScene(scene + 1);
+  };
+
   useEffect(() => {
-    document.addEventListener("click", () => {
-      scene + 1 >= 3 ? null : setScene(scene + 1);
-    });
+    document.addEventListener("click", () => updateScene(scene));
     return () => document.removeEventListener("click", () => {});
   }, [scene]);
+
   return (
     <>
       <Wave show={scene === 2} top="-10%" delay={800} duration={800} />
