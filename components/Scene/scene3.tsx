@@ -7,11 +7,20 @@ const Scene3 = ({ show }: { show: boolean }) => {
   const circleAnimated = useSpring({
     config: { mass: 1, tension: 280, friction: 1200, duration: 1000 },
     from: {
-      transform: "scale(0) translateY(-50%)",
+      transform: "scale(1) translateY(-50%)",
       top: "70%",
-      transformOrigin: "bottom center"
+      transformOrigin: "bottom center",
+      height: "0px",
+      width: "0px"
     },
-    transform: show ? "scale(1) translateY(-50%)" : "scale(0) translateY(-50%)",
+    // transform: show
+    //   ? "scale(1) translateY(-50%)"
+    //   : "scale(0.1) translateY(-50%)",
+    // transform: show
+    //   ? "scale(1) translateY(-50%)"
+    //   : "scale(0.1) translateY(-50%)",
+    height: show ? "500px" : 0,
+    width: show ? "500px" : 0,
     top: show ? "50%" : "70%"
   });
 
@@ -60,8 +69,7 @@ const Scene3 = ({ show }: { show: boolean }) => {
         style={{
           ...circleAnimated,
           position: "absolute",
-          height: "500px",
-          width: "500px",
+
           background: "#EE9092",
           borderRadius: "50%",
           zIndex: -1,
@@ -91,7 +99,7 @@ const Scene3 = ({ show }: { show: boolean }) => {
         />
       </animated.div>
       <Box sx={{ width: "50%", textAlign: "center" }}>
-        <Box sx={{ overflow: "auto" }}>
+        <Box sx={{ overflow: "hidden" }}>
           <animated.div style={{ ...headAnimated }}>
             <Head
               size={150}

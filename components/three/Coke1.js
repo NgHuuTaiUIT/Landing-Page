@@ -61,16 +61,20 @@ export default function Model({ ...props }) {
       group.current.position.x <= 0
         ? (group.current.position.x += 2.8 / 60)
         : 0;
-      group.current.rotation.y >= -2.3
-        ? (group.current.rotation.y -= 6 / 60)
+      // group.current.rotation.y >= -2.3
+      //   ? (group.current.rotation.y -= 6 / 60)
+      //   : (checkY = true);
+      group.current.rotation.y <= 10.1
+        ? (group.current.rotation.y += 5 / 60)
         : (checkY = true);
       // group.current.rotation.y = -2.5;
       group.current.rotation.z <= 0
         ? (group.current.rotation.z += 0.5 / 60)
         : (checkZ = true);
     }
+
     // group.current.rotation.x = 0.8;
-    // group.current.rotation.z = 0.25;
+    // group.current.rotation.y = 10.5;
   });
   return (
     <group ref={group} {...props} dispose={null}>

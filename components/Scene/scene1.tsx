@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { Descriptions } from "../element/descriptions";
-import Heading from "../element/heading";
+import { Descriptions } from "../common/descriptions";
+import Heading from "../common/heading";
 const Scene1 = ({ scene }: { scene: number }) => {
   return (
     <Flex

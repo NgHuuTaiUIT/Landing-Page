@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import cup from "../../assets/cup.svg";
 import face from "../../assets/Facebook.svg";
 import ins from "../../assets/Instagram.svg";
-import Head from "../common/head";
+import Head from "./head";
 import { TrailButton, TrailText } from "../spring/trail";
 
 interface Props {}
